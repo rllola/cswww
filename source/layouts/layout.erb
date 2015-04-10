@@ -39,16 +39,9 @@
 -->
 <!--    {% if headers.notice %}{{ headers.notice }}{% endif %} -->
         <!-- Twitter Bootstrap and jQuery after this line. -->
-        <script src="https://code.jquery.com/jquery-latest.js"></script>
-        <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-        <script>
-            $('.dropdown-toggle').dropdown();
-            $('.nav-collapse').collapse();
-        </script>
   </head>
   <body>
     <div class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
             <div class="navbar-header">
                 <a href="index.html" class="navbar-brand"><img class="" src="images/new-logo-sm.png" style="width: 200px" alt="Apache Cloudstack"></a>
                 <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-main">
@@ -58,7 +51,7 @@
                 </button>
             </div>
             <div class="navbar-collapse collapse" id="navbar-main">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="about">About <span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="about">
@@ -122,10 +115,8 @@
             </li>
           </ul>
             </div>
-        </div>
     </div>
-    <div class="container">
-        <div class="bs-docs-section">
+
             <%= yield %>
 
             <footer>
@@ -137,5 +128,11 @@
         </div>
     </div>
 </div>
+        <script src="https://code.jquery.com/jquery-latest.js"></script>
+        <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+        <script>
+            $('.dropdown-toggle').dropdown();
+            $('.nav-collapse').collapse();
+        </script>
   </body>
 </html>
