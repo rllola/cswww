@@ -1,0 +1,138 @@
+/**
+ * cloudStack Boostrap base theme
+ * Author: Lola
+ */
+body {
+	font-family: 'Roboto', sans-serif;
+	/*padding-top: 0;*/
+}
+
+.navbar {
+	margin-top: 0;
+	margin-bottom: 0;
+	border: none;
+	border-radius: 0;
+	color: white;
+	font-size: 15px;
+}
+
+.navbar-default {
+	background-color: #2C3E50;
+	border: none;
+
+	.navbar-nav > li > a {
+		color: #E7E7E7;
+
+		&:focus, &:hover {
+			color: #777;
+		}
+	}
+}
+
+#navbar-main {
+	padding-right: 20px;
+}
+
+#main {
+	/*background-color: #2C3E50;*/
+	background: url("http://www.mographer.com/wp-content/uploads/2013/08/low_poly_002.jpg") repeat scroll 1% 1% / cover transparent;
+	background-size: cover;
+	padding-top: 150px;
+	/* Is not really responsive too bad */
+  	min-height: 100vh;
+}
+
+#brand {
+	h1 {
+		color: white;	
+		font-size: 100px;		
+	}
+
+	h3 {
+		color: white;
+		font-size: 30px;
+		letter-spacing: 3px;
+	}
+}
+
+#announce {
+	margin-top: 50px;
+	margin-bottom: 80px;
+
+	h2 {
+		margin-top: 0;
+	}
+
+	p {
+		font-size: 18px;
+		font-weight: 200;
+	}
+
+	a {
+		/* 
+		 * http://www.flatuicolorpicker.com/ 
+		 * Shakespeare color 
+		 */
+		color: #52B3D9;
+
+		&:hover {
+			/* 
+			 * http://www.flatuicolorpicker.com/ 
+			 * Chambray color 
+			 */
+			color: #3A539B;
+		}
+	}
+
+	.jumbotron {
+		background-color:rgba(0,0,0,0.4);
+		color: white;
+	}
+
+	.btn-default {
+		background-color: transparent;
+		border-color: white;
+		color: white;
+		
+		&:hover {
+			background-color: white;
+			color: #555555;
+		}
+	}
+}
+
+section h1 {
+	font-weight: 200;
+}
+
+section p {
+	margin-top: 20px;
+}
+
+.small-line {
+	width: 100px;
+	border-bottom: 1px solid #333;
+	margin: auto;
+}
+
+.text-news {
+	/* 
+	 * http://www.flatuicolorpicker.com/ 
+	 * Shamrock color 
+	 */
+	color: #2ECC71;
+}
+
+/*
+ * Responsive stuff
+ */
+@media screen and (min-width: 768px) {
+  .equal, .equal > div[class*='col-md'] {  
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      flex:1 0 auto;
+  }
+}

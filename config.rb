@@ -3,9 +3,10 @@
 ###
 
 # Change Compass configuration
-# compass_config do |config|
-#   config.output_style = :compact
-# end
+compass_config do |config|
+    #config.output_style = :compact
+    config.output_style = :expanded
+end
 
 ###
 # Page options, layouts, aliases and proxies
@@ -36,9 +37,9 @@
 # activate :automatic_image_sizes
 
 # Reload the browser automatically whenever files change
-# configure :development do
-#   activate :livereload
-# end
+configure :development do
+    activate :livereload
+end
 
 # Methods defined in the helpers block are available in templates
 # helpers do
@@ -59,18 +60,27 @@ set :markdown_engine, :kramdown
 
 # Build-specific configuration
 configure :build do
-  # For example, change the Compass output style for deployment
-  # activate :minify_css
+    # For example, change the Compass output style for deployment
 
-  # Minify Javascript on build
-  # activate :minify_javascript
+    # Build-specific configuration
+    compass_config do |config|
+        config.sass_options = {:debug_info => false}
+        config.sass_options = {:line_comments => false}
+        config.output_style = :compressed
+    end
 
-  # Enable cache buster
-  # activate :asset_hash
+    # Minify CSS on build
+    activate :minify_css
 
-  # Use relative URLs
-  # activate :relative_assets
+    # Minify Javascript on build
+    activate :minify_javascript
 
-  # Or use a different image path
-  # set :http_prefix, "/Content/images/"
+    # Enable cache buster
+    # activate :asset_hash
+
+    # Use relative URLs
+    # activate :relative_assets
+
+    # Or use a different image path
+    # set :http_prefix, "/Content/images/"
 end
