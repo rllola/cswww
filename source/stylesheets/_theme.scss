@@ -44,8 +44,8 @@ body {
 
 #brand {
 	h1 {
-		color: white;	
-		font-size: 100px;		
+		color: white;
+		font-size: 100px;
 	}
 
 	h3 {
@@ -69,16 +69,16 @@ body {
 	}
 
 	a {
-		/* 
-		 * http://www.flatuicolorpicker.com/ 
-		 * Shakespeare color 
+		/*
+		 * http://www.flatuicolorpicker.com/
+		 * Shakespeare color
 		 */
 		color: #52B3D9;
 
 		&:hover {
-			/* 
-			 * http://www.flatuicolorpicker.com/ 
-			 * Chambray color 
+			/*
+			 * http://www.flatuicolorpicker.com/
+			 * Chambray color
 			 */
 			color: #3A539B;
 		}
@@ -93,7 +93,7 @@ body {
 		background-color: transparent;
 		border-color: white;
 		color: white;
-		
+
 		&:hover {
 			background-color: white;
 			color: #555555;
@@ -101,12 +101,43 @@ body {
 	}
 }
 
-section h1 {
-	font-weight: 200;
+#about {
+    padding-bottom: 30px;
 }
 
-section p {
-	margin-top: 20px;
+#events {
+    background-color: #F9F9FB;
+}
+
+#twitter-feeds {
+    background: url("../images/bg-twitter.jpg");
+    background-size: cover;
+    min-height: 350px;
+
+    .twiter-wrapper {
+        margin-top: 50px;
+
+        .twitter-timeline {
+            background-color: rgba(255,255,255,0.8);
+            border-radius: 4px;
+        }
+    }
+}
+
+footer {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: #F9F9FB;
+}
+
+section {
+    h1 {
+	   font-weight: 200;
+    }
+
+    p {
+        margin-top: 20px;
+    }
 }
 
 .small-line {
@@ -116,18 +147,34 @@ section p {
 }
 
 .text-news {
-	/* 
-	 * http://www.flatuicolorpicker.com/ 
-	 * Shamrock color 
+	/*
+	 * http://www.flatuicolorpicker.com/
+	 * Shamrock color
 	 */
 	color: #2ECC71;
+}
+
+.btn-info {
+    background-color: transparent;
+    color: #3A539B;
+    border-color: #3A539B;
+
+    &:hover {
+        background-color: #3A539B;
+        border-color: #3A539B;
+        color: white;
+    }
+}
+
+.content {
+    padding-top: 150px;
 }
 
 /*
  * Responsive stuff
  */
 @media screen and (min-width: 768px) {
-  .equal, .equal > div[class*='col-md'] {  
+  .equal, .equal > div[class*='col-md'] {
       display: -webkit-box;
       display: -moz-box;
       display: -ms-flexbox;

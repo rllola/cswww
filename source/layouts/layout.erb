@@ -60,7 +60,7 @@
         <div class="navbar-collapse collapse" id="navbar-main">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="about">About <span class="caret"></span></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">About <span class="caret"></span></a>
                     <ul class="dropdown-menu" aria-labelledby="about">
                         <li><a tabindex="-1" href="about.html">About</a></li>
                         <li class="divider"></li>
@@ -74,7 +74,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="community">Community <span class="caret"></span></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Community <span class="caret"></span></a>
                     <ul class="dropdown-menu" aria-labelledby="community">
                         <li><a tabindex="-1" href="contribute.html">Get Involved</a></li>
                         <li><a tabindex="-1" href="developers.html">Developers</a></li>
@@ -83,7 +83,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="users">Users <span class="caret"></span></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Users <span class="caret"></span></a>
                     <ul class="dropdown-menu" aria-labelledby="users">
                         <li><a tabindex="-1" href="users.html">Known Users</a></li>
                         <li><a tabindex="-1" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Case+Studies" target="_blank">Case Studies <span class="glyphicon glyphicon-share-alt pull-right"></span></a></li>
@@ -91,7 +91,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="docs">Documentation <span class="caret"></span></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Documentation <span class="caret"></span></a>
                         <ul class="dropdown-menu" aria-labelledby="docs">
                         <li><a tabindex="-1" href="http://docs.cloudstack.apache.org" target="_blank">Getting Started Docs</span></a></li>
                         <li><a tabindex="-1" href="http://docs.cloudstack.apache.org/projects/cloudstack-installation" target="_blank">Installation Docs</a></li>
@@ -104,7 +104,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Download <span class="caret"></span></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Download <span class="caret"></span></a>
                     <ul class="dropdown-menu" aria-labelledby="download">
                         <li><a tabindex="-1" href="downloads.html">CloudStack Releases</a></li>
                         <li><a tabindex="-1" href="downloads.html#cloudmonkey">CloudMonkey</a></li>
@@ -112,7 +112,7 @@
                     </ul>
                 </li>
 	            <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="apache">Apache <span class="caret"></span></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Apache <span class="caret"></span></a>
                     <ul class="dropdown-menu" aria-labelledby="apache">
 				        <li><a tabindex="-1" href="http://apache.org">Apache Software Foundation</a></li>
                         <li><a tabindex="-1" href="http://www.apache.org/licenses/">License</a></li>
@@ -128,11 +128,9 @@
 
     <footer>
         <div class="container">
-            <div class="row">
-                <p class="text-muted text-center">Copyright © 2015 The Apache Software Foundation, Licensed under the Apache License, Version 2.0. <br/>
-                "Apache", "CloudStack", "Apache CloudStack", the Apache CloudStack logo, the Apache CloudStack Cloud Monkey logo and the Apache feather logos are registered trademarks or trademarks of The Apache Software Foundation.<br/>
-                <a href="/trademark-guidelines.html">Apache CloudStack Trademark Usage</a> - <a href="/bylaws.html">Apache CloudStack Community ByLaws</a></p>
-            </div>
+            <p class="text-muted text-center">Copyright © 2015 The Apache Software Foundation, Licensed under the Apache License, Version 2.0. <br/>
+            "Apache", "CloudStack", "Apache CloudStack", the Apache CloudStack logo, the Apache CloudStack Cloud Monkey logo and the Apache feather logos are registered trademarks or trademarks of The Apache Software Foundation.<br/>
+            <a href="/trademark-guidelines.html">Apache CloudStack Trademark Usage</a> - <a href="/bylaws.html">Apache CloudStack Community ByLaws</a></p>
         </div>
     </footer>
         <script src="https://code.jquery.com/jquery-latest.js"></script>
@@ -142,7 +140,7 @@
             $('.nav-collapse').collapse();
         </script>
         <script>
-        var maxEntries = 3; // if 0 then there will be no limit
+        var maxEntries = 1; // if 0 then there will be no limit
 
         function slug(str){
          return str.replace(/\s/g,'-').replace(/[^a-zA-Z0-9\-]/g,'').toLowerCase();
@@ -185,22 +183,23 @@
          * File is the rss feed
          */
         function newEventList(id, file) {
-         $.getJSON("//query.yahooapis.com/v1/public/yql?q=select%20*%20from%20xml%20where%20url%3D%22"+encodeURIComponent(file)+"%22&format=json&callback=?", function(d) {
-          var count = 0;
-          $(d.query.results.feed.entry).each(function() {
-            if(maxEvents == 0 || maxEvents>count){
-             var title = this.title;
-             var link = this.link.href;
-             var anItem = "<p><a href='"+link+"' target='_blank'>"+title+"</a></p>";
-             $("#"+id).append(anItem);
-             count++;
-            }
-           });
-           $("#events").append("<p><small>For more events, take a look at the <a href='http://lanyrd.com/topics/apache-cloudstack/' target='_blank'>Apache CloudStack topic page</a> on Lanyrd.</small></p>");
-         });
+            var count = 0;
+            var htmlCode = "<ul>";
+            $.getJSON("//query.yahooapis.com/v1/public/yql?q=select%20*%20from%20xml%20where%20url%3D%22"+encodeURIComponent(file)+"%22&format=json&callback=?").success(function(d) {
+                $(d.query.results.feed.entry).each(function() {
+                    if(maxEvents == 0 || maxEvents>count){
+                        htmlCode = htmlCode +"<li><a href='"+this.link.href+"' target='_blank'>"+this.title+"</a></li>";
+                        count++;
+                    }
+                });
+                htmlCode = htmlCode + "</ul><p><small>For more events, take a look at the <a href='http://lanyrd.com/topics/apache-cloudstack/' target='_blank'>Apache CloudStack topic page</a> on Lanyrd.</small></p>";
+            }).then(function(){
+                $("#"+id).html(htmlCode);
+                console.log(htmlCode);
+            });
         };
 
-        newEventList("events", "http://lanyrd.com/topics/apache-cloudstack/feed/");
+        newEventList("events-list", "http://lanyrd.com/topics/apache-cloudstack/feed/");
 
         </script>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>

@@ -2,10 +2,10 @@
 title: About CloudStack
 ---
 
-<div class="row">
-	<div class="col-lg-12">
+<div class="content">
+	<div class="container">
 		<div class="page-header">
-			<h1 id="indicators">Apache CloudStack: About</h1>
+			<h1>Apache CloudStack: About</h1>
 		</div>
 
 	</div>
@@ -15,7 +15,7 @@ title: About CloudStack
 
 Apache CloudStack is a top-level project of the Apache Software Foundation (ASF). The project develops open source software for deploying public and private Infrastructure-as-a-Service (IaaS) clouds.
 
-CloudStack provides an open and flexible cloud orchestration platform to deliver reliable and scalable private and public clouds. What's that *mean*, exactly? 
+CloudStack provides an open and flexible cloud orchestration platform to deliver reliable and scalable private and public clouds. What's that *mean*, exactly?
 
 # Features and Functionality
 
