@@ -2,15 +2,6 @@
 title: About CloudStack
 ---
 
-<div class="content">
-	<div class="container">
-		<div class="page-header">
-			<h1>Apache CloudStack: About</h1>
-		</div>
-
-	</div>
-</div>
-
 # What is Apache CloudStack?
 
 Apache CloudStack is a top-level project of the Apache Software Foundation (ASF). The project develops open source software for deploying public and private Infrastructure-as-a-Service (IaaS) clouds.
